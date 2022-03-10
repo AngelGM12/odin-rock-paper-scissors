@@ -56,11 +56,28 @@ function game(){
 }
 
 const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+const divres = document.querySelector(".results");
+
+
 
 rock.addEventListener('click', () =>{
     let compselect = computerPlay();
-    console.log(playRound(compselect, "rock"));
+    //onsole.log(playRound(compselect, "rock"));
+    divres.textContent = playRound(compselect, "rock");
 });
+paper.addEventListener('click', () =>{
+    let compselect = computerPlay();
+    //console.log(playRound(compselect, "paper"));
+    divres.textContent = playRound(compselect, "paper");
+});
+scissors.addEventListener('click', () =>{
+    let compselect = computerPlay();
+    //console.log(playRound(compselect, "scissors"));
+    divres.textContent = playRound(compselect, "scissors");
+});
+
 
 //game();
 
