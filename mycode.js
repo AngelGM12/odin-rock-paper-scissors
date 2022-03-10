@@ -47,14 +47,22 @@ function playRound(computerSelection , playerSelection) {
 }
 
 function game(){
-    for (let i = 0; i<5; i++){
-        let playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
-        let computerSelection = computerPlay();
-        console.log(playRound(computerSelection,playerSelection));
-    }
-    
+    /*for (let i = 0; i<5; i++){
+        
+    }*/
+    let playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
+    let computerSelection = computerPlay();
+    console.log(playRound(computerSelection,playerSelection));
 }
-game();
+
+const rock = document.querySelector("#rock");
+
+rock.addEventListener('click', () =>{
+    let compselect = computerPlay();
+    console.log(playRound(compselect, "rock"));
+});
+
+//game();
 
 
 
