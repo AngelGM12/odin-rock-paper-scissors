@@ -74,13 +74,16 @@ function playRound(computerSelection , playerSelection) {
 function getWinner(){
     if(player>com){
         console.log("Player won");
+        divres.textContent = "PlayerWon";
     }
     if(player<com){
         console.log("computer won");
+        divres.textContent = "Computer Won";
 
     }
     if(player==com){
         console.log("Its a tie");
+        divres.textContent = "It's a tie";
     }
     document.getElementById("newgame").hidden = false;
     
