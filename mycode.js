@@ -5,7 +5,8 @@ let index = " ";
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
-const divres = document.querySelector(".results");
+const divres = document.querySelector("#results");
+const finalRes= document.getElementById("gameres");
 const newgm = document.querySelector('#newgame');
 let counter = 1;
 
@@ -24,7 +25,7 @@ function playRound(computerSelection , playerSelection) {
     console.log(playerSelection);
     console.log(computerSelection);
     if(counter < 5){
-        counter++;
+        
         if (computerSelection === playerSelection ){
             res = "Its a tie";
             return res;
@@ -60,31 +61,40 @@ function playRound(computerSelection , playerSelection) {
             return res;
         }
         
+        
+        
     }
     else{
         
-        disableBtns();
+        
         getWinner();
         
+        disableBtns();
     }
     
-    
+    counter++;
     
 }
 function getWinner(){
+    let pcwin="";
     if(player>com){
         console.log("Player won");
-        divres.textContent = "PlayerWon";
+        pcwin = "Player won";
     }
     if(player<com){
         console.log("computer won");
-        divres.textContent = "Computer Won";
+        pcwin = "computerwon";
+        
 
     }
     if(player==com){
         console.log("Its a tie");
-        divres.textContent = "It's a tie";
+        pcwin = "It's a tie";
+        
     }
+    
+    divres.textContent = pcwin;
+    game(pcwin);
     document.getElementById("newgame").hidden = false;
     
 }
@@ -93,6 +103,7 @@ function disableBtns() {
     document.getElementById("rock").disabled = true;
     document.getElementById("paper").disabled = true;
     document.getElementById("scissors").disabled = true;
+    divres.textContent = "It's a tie";
     
 }
 function enableBtns() {
@@ -100,22 +111,27 @@ function enableBtns() {
     document.getElementById("paper").disabled = false;
     document.getElementById("scissors").disabled = false;
 }
-function game(){
-    /*for (let i = 0; i<5; i++){
-        
-    }
-    let playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
-    let computerSelection = computerPlay();
-    console.log(playRound(computerSelection,playerSelection));*/
+function game(string){
+
+    
+    finalRes.textContent = string;
 }
 function newGame(){
     enableBtns();
     counter = 1;
     player = 0;
     com = 0;
+    document.getElementById("playerScore").textContent = 0;
+    document.getElementById("comScore").textContent = 0;
+    finalRes.textContent="";
     document.getElementById("newgame").hidden = true;
-}
 
+}
+function updateScore(){
+    document.getElementById("playerScore").textContent = player;
+    document.getElementById("comScore").textContent = com;
+
+}
 
 newgm.addEventListener('click', () =>{
     newGame();
@@ -125,7 +141,7 @@ rock.addEventListener('click', () =>{
     let compselect = computerPlay();
     //console.log(playRound(compselect, "rock"));
     divres.textContent = playRound(compselect, "rock");
-    
+    updateScore();
     //console.log(btns);
     console.log(counter);
 });
@@ -133,18 +149,15 @@ paper.addEventListener('click', () =>{
     let compselect = computerPlay();
     //console.log(playRound(compselect, "paper"));
     divres.textContent = playRound(compselect, "paper");
-    
+    updateScore();
     console.log(counter);
 });
 scissors.addEventListener('click', () =>{
     let compselect = computerPlay();
     //console.log(playRound(compselect, "scissors"));
     divres.textContent = playRound(compselect, "scissors");
-    
+    updateScore();
     console.log(counter);
 });
 
 
-if(counter == 5){
-    console.log("Game done")
-}
