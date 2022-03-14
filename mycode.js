@@ -25,7 +25,7 @@ function playRound(computerSelection , playerSelection) {
     console.log(playerSelection);
     console.log(computerSelection);
     if(counter < 5){
-        
+        counter++;
         if (computerSelection === playerSelection ){
             res = "Its a tie";
             return res;
@@ -72,7 +72,7 @@ function playRound(computerSelection , playerSelection) {
         disableBtns();
     }
     
-    counter++;
+    
     
 }
 function getWinner(){

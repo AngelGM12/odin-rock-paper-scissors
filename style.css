@@ -1,0 +1,15 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display:flex;
+    /*margin: 0;*/
+    flex-direction: column;
+    justify-content:space-between;
+    
+    min-height: 100%;
+}
+h1 {
+    
+}
