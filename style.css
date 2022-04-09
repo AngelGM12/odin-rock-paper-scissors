@@ -2,14 +2,53 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
+.body {
     display:flex;
     /*margin: 0;*/
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: flex-start;
+    /*align-items:space-between ;*/
+    height: 100vh;
     
-    min-height: 100%;
+    /*min-height: 100%;*/
 }
 h1 {
+    text-align: center;
+    border: 1px solid black ;
+    padding: 25px;
     
+}
+div{
+    border: 1px solid black ;
+}
+header{
+    margin: 0;
+}
+.scoring{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px 25px 0px 25px;
+    padding: 50px;
+    
+    
+}
+.choices{
+    text-align: center;
+}
+
+.options{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    height: 55px;
+
+}
+#results{
+    text-align: center;
+}
+
+.footer{
+    text-align: center;
+    justify-self: flex-end;
 }
