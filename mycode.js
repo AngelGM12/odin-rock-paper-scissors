@@ -8,6 +8,9 @@ const scissors = document.querySelector("#scissors");
 const divres = document.querySelector("#results");
 const finalRes= document.getElementById("gameres");
 const newgm = document.querySelector('#newgame');
+const playchoice = document.querySelector('#playerChoice');
+const comchoice = document.querySelector('#comChoice');
+
 let counter = 1;
 
 let player=0;
@@ -24,57 +27,51 @@ function computerPlay() {
 function playRound(computerSelection , playerSelection) {
     console.log(playerSelection);
     console.log(computerSelection);
-    if(counter < 5){
-        counter++;
-        if (computerSelection === playerSelection ){
-            res = "Its a tie";
-            return res;
-        }
-        if(computerSelection === "rock" && playerSelection === "paper"){
-            res ="You win";
-            player++;
-            return res;
-        }
-        if(computerSelection === "rock" && playerSelection === "scissors"){
-            res ="Computer wins";
-            com++;
-            return res;
-        }
-        if(computerSelection === "paper" && playerSelection === "rock"){
-            res ="Computer wins";
-            com++;
-            return res;
-        }
-        if(computerSelection === "paper" && playerSelection === "scissors"){
-            res ="You win";
-            player++;
-            return res;
-        }
-        if(computerSelection === "scissors" && playerSelection === "paper"){
-            res ="Computer wins";
-            com++;
-            return res;
-        }
-        if(computerSelection === "scissors" && playerSelection === "rock"){
-            res ="You win";
-            player++;
-            return res;
-        }
-        
-        
-        
+
+    if (computerSelection === playerSelection ){
+        res = "Its a tie";
+        //return res;
     }
-    else{
-        
-        
+    if(computerSelection === "rock" && playerSelection === "paper"){
+        res ="You win";
+        player++;
+        //return res;
+    }
+    if(computerSelection === "rock" && playerSelection === "scissors"){
+        res ="Computer wins";
+        com++;
+        //return res;
+    }
+    if(computerSelection === "paper" && playerSelection === "rock"){
+        res ="Computer wins";
+        com++;
+        //return res;
+    }
+    if(computerSelection === "paper" && playerSelection === "scissors"){
+        res ="You win";
+        player++;
+        //return res;
+    }
+    if(computerSelection === "scissors" && playerSelection === "paper"){
+        res ="Computer wins";
+        com++;
+        //return res;
+    }
+    if(computerSelection === "scissors" && playerSelection === "rock"){
+        res ="You win";
+        player++;
+        //return res;
+    }
+    if (player==5 || com==5){
         getWinner();
         
         disableBtns();
     }
-    
-    
+    console.log(player, com);
+    return res;
     
 }
+
 function getWinner(){
     let pcwin="";
     if(player>com){
@@ -83,7 +80,7 @@ function getWinner(){
     }
     if(player<com){
         console.log("computer won");
-        pcwin = "computerwon";
+        pcwin = "Computer Won";
         
 
     }
@@ -124,6 +121,9 @@ function newGame(){
     document.getElementById("playerScore").textContent = 0;
     document.getElementById("comScore").textContent = 0;
     finalRes.textContent="";
+    divres.textContent="";
+    comchoice.textContent = "";
+    playchoice.textContent = "";
     document.getElementById("newgame").hidden = true;
 
 }
@@ -131,6 +131,33 @@ function updateScore(){
     document.getElementById("playerScore").textContent = player;
     document.getElementById("comScore").textContent = com;
 
+
+}
+
+function choices (computerSelection , playerSelection) {
+    if(computerSelection == "rock"){
+        comchoice.textContent = "✊";
+    }
+    
+    if(computerSelection == "paper"){
+        comchoice.textContent = "✋";
+    }
+    
+    if(computerSelection == "scissors"){
+        comchoice.textContent = "✌️";
+    }
+    if(playerSelection == "rock"){
+        playchoice.textContent = "✊";
+    }
+    
+    if(playerSelection == "paper"){
+        playchoice.textContent = "✋";
+    }
+    
+    if(playerSelection == "scissors"){
+        playchoice.textContent = "✌️";
+    }
+    
 }
 
 newgm.addEventListener('click', () =>{
@@ -139,25 +166,27 @@ newgm.addEventListener('click', () =>{
 
 rock.addEventListener('click', () =>{
     let compselect = computerPlay();
-    //console.log(playRound(compselect, "rock"));
+   
     divres.textContent = playRound(compselect, "rock");
     updateScore();
-    //console.log(btns);
+    choices(compselect, "rock");
     console.log(counter);
 });
 paper.addEventListener('click', () =>{
     let compselect = computerPlay();
-    //console.log(playRound(compselect, "paper"));
+    
     divres.textContent = playRound(compselect, "paper");
     updateScore();
     console.log(counter);
+    choices(compselect, "paper");
 });
 scissors.addEventListener('click', () =>{
     let compselect = computerPlay();
-    //console.log(playRound(compselect, "scissors"));
+    
     divres.textContent = playRound(compselect, "scissors");
     updateScore();
     console.log(counter);
+    choices(compselect, "scissors");
 });
 
 

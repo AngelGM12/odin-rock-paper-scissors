@@ -2,8 +2,13 @@ html {
     scroll-behavior: smooth;
 }
 body{
-    /*background-image: url(/images/backgroundImage.jpg);*/
+    /*background-image: url(/images/background1.jpg);
+    opacity: 0.99;*/
+    display: flex;
+    justify-content: center;
+    background-color: #606179   ;
 }
+
 .container {
     display:flex;
     margin: 0;
@@ -11,24 +16,31 @@ body{
     justify-content: space-between;
     /*align-items:space-between ;*/
     height: 100vh;
+    width: 900px;
+    align-self: center;
+    background-color: #222831;
     
     
     /*min-height: 100%;*/
 }
 h1 {
     text-align: center;
-    border: 1px solid black ;
+    /*border: 1px solid black ;*/
     padding: 25px;
-    
+    font-family: 'VT323', monospace;
+    color: #ffcc33;
+    font-size: 50px;
 }
 
 div{
-    border: 2px solid black;
+    /*border: 2px solid black;*/
     margin: 10px;
+    color: gainsboro;
 
 }
-header{
+.header{
     margin: 0;
+    background-color: #111720;
 }
 .scoring{
     display: flex;
@@ -38,9 +50,34 @@ header{
     padding: 50px;
     
     
+    
 }
 .choices{
+    /*border: 5px solid black;*/
+    align-self: center;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
     text-align: center;
+}
+div + span{
+    align-self: center;
+    font-size: 35px;
+}
+.choiceContainer{
+    /*border: 5px solid black;*/
+    display: flex;
+    flex-direction: column;
+    color: gainsboro;
+    
+    font-size: 35px;
+
+}
+.comcontainer{
+    padding: 0 50px 0 0;
+}
+.playercontainer{
+    padding: 0 0 0 50px;
 }
 
 .options{
@@ -48,6 +85,7 @@ header{
     justify-content: space-evenly;
     gap: 8px;
     height: 250px;
+    align-items: center;
 
 }
 #results{
@@ -58,4 +96,65 @@ header{
 .footer{
     text-align: center;
     justify-self: flex-end;
+}
+
+#playerScore, #comScore {
+    font-size: 25px;
+}
+
+#rock, #paper, #scissors{
+    font-size: 95px;
+    height: 225px;
+    width: 225px;
+    background-color: rgb(29, 29, 78);
+    
+}
+
+.hiddenDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#gameres{
+    font-size: 55px;
+    font-family: 'VT323', monospace;
+    color: #ffcc33;
+}
+
+#newgame{
+    font-family: 'VT323', monospace;
+    font-size: 40px;
+    color: gainsboro;
+    background-color: transparent;
+}
+
+#rock:hover{
+    transform: scale(1.1) perspective(1px);
+}
+
+#paper:hover{
+    transform: scale(1.1) perspective(1px)
+}
+
+#scissors:hover{
+    transform: scale(1.1) perspective(1px)
+}
+
+@media (max-width: 600px){
+    .container{
+        width: 100%;
+    }
+    #rock, #paper, #scissors{
+        height: 125px;
+        width: 125px;
+        font-size: 50px;
+    }
+    #gameres{
+        font-size: 30px;
+    }
+    #newgame{
+        font-size: 23px;
+    }
 }
